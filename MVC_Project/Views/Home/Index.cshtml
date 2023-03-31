@@ -1,0 +1,262 @@
+﻿@model PagedList.IPagedList<MVC_Project.Models.Sach>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Trang chủ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script src="https://kit.fontawesome.com/e38363a3ae.js" crossorigin="anonymous"></script>
+<link href="~/Content/Site.css" rel="stylesheet" />
+<link rel="icon" type="image/x-icon" href="\Content\logo-hutech-tron_012635653.png">
+    <div class="jumbotron" style="width: 100%; height: 600px; ">
+        <section>
+            <div class="main">
+                <div class="main_tag">
+
+                    <h1>WELCOME TO<br><span>HutechBook</span></h1>
+
+                    <p>
+                        Chào mừng các bạn đến với trang HutechBook, trang buôn bán các loại sách khác nhau.Hy vọng bạn sẽ tìm được sách mà bạn đang tìm đọc.
+                    </p>
+                </div>
+                <div class="main_img">
+                    <img src="\Content\e4g2fj81n7l41.png" style="width:500px;margin-right:20px">
+                </div>
+            </div>
+        </section>
+
+
+    </div>
+    <div class="services">
+
+        <div class="services_box">
+
+            <div class="services_card">
+                <i class="fa-solid fa-truck-fast"></i>
+                <h3>GIAO HÀNG NHANH</h3>
+                <p>
+                    @*Lorem ipsum dolor, sit amet consectetur adipisicing elit.*@
+                    Nhanh hơn người yêu cũ trở mặt
+                </p>
+            </div>
+
+            <div class="services_card">
+                <i class="fa-solid fa-headset"></i>
+                <h3>HOẠT ĐỘNG 24/7</h3>
+                <p>
+                    @*Lorem ipsum dolor, sit amet consectetur adipisicing elit.*@
+                    Hoạt động ngày đêm như Developer
+                </p>
+            </div>
+
+            <div class="services_card">
+                <i class="fa-solid fa-tag"></i>
+                <h3>GIÁ CẢ PHẢI CHĂNG</h3>
+                <p>
+                    @*Lorem ipsum dolor, sit amet consectetur adipisicing elit.*@
+                    Rẻ hơn giá mà mẹ bạn mặc cả ở chợ
+                </p>
+            </div>
+
+            <div class="services_card">
+                <i class="fa-solid fa-lock"></i>
+                <h3>AN TOÀN - TIỆN LỢI</h3>
+                <p>
+                    @*Lorem ipsum dolor, sit amet consectetur adipisicing elit.*@
+                    Như cửa hàng tiện lợi
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="featured_boks">
+
+        <h1>Books On Sale</h1>
+
+        <div class="featured_book_box">
+
+            <div class="featured_book_card">
+
+                <div class="featurde_book_img">
+                    <img src="~/Content//p10.jpg">
+                </div>
+
+                <div class="featurde_book_tag">
+                    <h2>
+                        Cây Cam Ngọt Của Tôi
+                    </h2>
+                    <p class="writer">
+                        José Mauro de Vasconcelos
+                    </p>
+                    <div class="categories">Văn Học</div>
+                    <p class="book_price">108000 VND<sub><del>120000 VND</del></sub></p>
+                    <a href="https://localhost:44339/Sach/Detail/10" class="f_btn">Mua Ngay</a>
+                </div>
+            </div>
+            <div class="featured_book_card">
+
+                <div class="featurde_book_img">
+                    <img src="~/Content/p12.jpg">
+                </div>
+
+                <div class="featurde_book_tag" style="margin-top:60px">
+                    <h2 style="margin-top:-35px">
+                        Nhà Giả Kim
+                    </h2>
+                    <p class="writer" style="margin-top:30px">
+                        Paul Coelho
+                    </p>
+                    <div class="categories">Văn Học</div>
+                    <p class="book_price">79000 VND<sub><del>100000 VND</del></sub></p>
+                    <a href="https://localhost:44339/Sach/Detail/12" class="f_btn">Mua Ngay</a>
+                </div>
+
+            </div>
+
+            <div class="featured_book_card">
+
+                <div class="featurde_book_img">
+                    <img src="~/Content/p13.jpg">
+                </div>
+
+                <div class="featurde_book_tag">
+                    <h2>
+                        Tiệm Tạp Hóa NAMIYA
+                    </h2>
+                    <p class="writer">
+                        Higashino Keigo
+                    </p>
+                    <div class="categories">Văn Học</div>
+                    <p class="book_price">105000 VND<sub><del>130000 VND</del></sub></p>
+                    <a href="https://localhost:44339/Sach/Detail/13" class="f_btn">Mua Ngay</a>
+                </div>
+
+            </div>
+
+            <div class="featured_book_card">
+
+                <div class="featurde_book_img">
+                    <img src="~/Content/p18.jpg">
+                </div>
+
+                <div class="featurde_book_tag">
+                    <h2>
+                        Muôn Kiếp Nhân Sinh 1&2
+                    </h2>
+                    <p class="writer">
+                        Nguyên Phong
+                    </p>
+                    <div class="categories">Tâm Linh</div>
+                    <p class="book_price">436000 VND<sub><del>450000 VND</del></sub></p>
+                    <a href="https://localhost:44339/Sach/Detail/18" class="f_btn">Mua Ngay</a>
+                </div>
+
+            </div>
+
+            <div class="featured_book_card">
+
+                <div class="featurde_book_img">
+                    <img src="~/Content/p20.jpg">
+                </div>
+
+                <div class="featurde_book_tag">
+                    <h2>
+                        Tất Cả Là Thử Thách
+                    </h2>
+                    <p class="writer">
+                        Chung Ju-Yung
+                    </p>
+                    <div class="categories">Tự truyện</div>
+                    <p class="book_price">268000 VND<sub><del>290000 VND</del></sub></p>
+                    <a href="https://localhost:44339/Sach/Detail/20" class="f_btn">Mua Ngay</a>
+                </div>
+
+            </div>
+
+            <div class="featured_book_card">
+
+                <div class="featurde_book_img">
+                    <img src="~/Content/p21.jpg">
+                </div>
+
+                <div class="featurde_book_tag" style="margin-top:20px">
+                    <h2>
+                        Gã Nghiện Giày
+
+                    </h2>
+                    <p class="writer" style="margin-top:35px">
+                        Phil Knight
+                    </p>
+                    <div class="categories">Tự truyện</div>
+                    <p class="book_price">160000 VND<sub><del>190000 VND</del></sub></p>
+                    <a href="https://localhost:44339/Sach/Detail/21" class="f_btn">Mua Ngay</a>
+                </div>
+
+            </div>
+
+            <div class="featured_book_card">
+
+                <div class="featurde_book_img">
+                    <img src="~/Content/p7.jpg">
+                </div>
+
+                <div class="featurde_book_tag">
+                    <h2>
+                        Hiểu Về Trái Tim
+                    </h2>
+                    <p class="writer">
+                        Thầy Minh Niệm
+                    </p>
+                    <div class="categories">Tư duy - Kỹ năng sống</div>
+                    <p class="book_price">158000 VND<sub><del>190000 VND</del></sub></p>
+                    <a href="https://localhost:44339/Sach/Detail/7" class="f_btn">Mua Ngay</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+<footer style="background-color:antiquewhite">
+    <div class="footer_main">
+
+        <div class="tag">
+            <img src="\Content\logo-hutech-tron_012635653.png">
+            <p>
+                Sinh viên đại học Hutech thành phố Hồ Chí Minh thực hiện đồ án môn học Lập trình website bằng MVC ASP.NET.
+            </p>
+
+        </div>
+
+        <div class="tag">
+            <h1>Quick Link</h1>
+            <a href="https://localhost:44339/">Home</a>
+            <a href="https://localhost:44339/ListSach">Danh Sách Sách</a>
+            <a href="https://localhost:44339/ViewTheLoai/TheLoai">Thể Loại</a>
+            <a href="https://localhost:44339/GioHang/GioHang">Giỏ Hàng</a>
+
+
+        </div>
+
+        <div class="tag">
+            <h1>Contact Info</h1>
+            <a href="#"><i class="fa-solid fa-phone"></i>+0834515106</a>
+            <a href="#"><i class="fa-solid fa-envelope"></i>bookstore123@gmail.com</a>
+
+        </div>
+        <div class="tag">
+            <h1>Follow Us</h1>
+            <div class="social_link">
+                <a href="https://www.facebook.com/nteeka202/"> <i class="fa-brands fa-facebook"></i>Facebook</a>
+                <a href="https://www.instagram.com/nteeka_2/"> <i class="fa-brands fa-instagram"></i>Instagram</a>
+                <a href="https://www.facebook.com/nteeka202/"> <i class="fa-brands fa-twitter"></i>Twitter</a>
+                <a href="https://www.facebook.com/nteeka202/"> <i class="fa-brands fa-linkedin-in"></i>Linkedin</a>
+            </div>
+        </div>
+    </div>
+    <p class="end">Design By<span><i class="fa-solid fa-face-grin"></i> KPTH</span></p>
+</footer>
+

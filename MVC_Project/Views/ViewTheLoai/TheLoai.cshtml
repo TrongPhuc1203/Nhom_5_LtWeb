@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Thể Loại";
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="margin-top:100px">Thể Loại</h2>
+<table class="table">
+    <tr>
+        
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr> 
+            <td >
+                <a href="@Url.Action("SachTheoTheLoai", new {@MaTL=item.MaTL})" class="button"> @item.TenTL</a>
+
+                <a style="float:right" class="btn btn-success" href="@Url.Action("SachTheoTheLoai",new { @MaTL = item.MaTL, @strURL = Request.Url.ToString()})">Xem</a>
+
+            </td>
+        </tr>
+    }
+</table>
+

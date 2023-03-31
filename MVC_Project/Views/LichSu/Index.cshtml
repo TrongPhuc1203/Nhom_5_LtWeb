@@ -1,0 +1,68 @@
+﻿@model IEnumerable<MVC_Project.Models.CTHoaDon>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<h2></h2>
+<h3>Lịch sử toàn bộ đơn đặt hàng</h3>
+<table class="table"style="text-align:center">
+    <tr >
+        <th style="text-align:center">
+            @*@Html.DisplayNameFor(model => model.MaHD)*@
+            @Html.Label("Khách hàng")
+        </th>
+        <th style="text-align:center">
+            @*@Html.DisplayNameFor(model => model.MaHD)*@
+            @Html.Label("Mã Hoá Đơn")
+        </th>
+        <th style="text-align:center">
+            @*@Html.DisplayNameFor(model => model.Sach.TenSach)*@
+            @Html.Label("Tên sách")
+        </th>
+
+        <th style="text-align:center">
+            @*@Html.DisplayNameFor(model => model.SoLuongMua)*@
+            @Html.Label("Số lượng")
+        </th>
+        <th style="text-align:center">
+            @*@Html.DisplayNameFor(model => model.ThanhTien)*@
+            @Html.Label("Thành Tiền")
+        </th>
+        <th style="text-align:center">
+            @*@Html.DisplayNameFor(model => model.HoaDon.NgayTao)*@
+            @Html.Label("Ngày lập hóa đơn")
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr style="text-align:center">
+            <td>
+                @Html.DisplayFor(modelItem => item.HoaDon.TaiKhoan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaHD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sach.TenSach)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.SoLuongMua)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ThanhTien) VND
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HoaDon.NgayTao)
+            </td>
+
+        </tr>
+    }
+
+</table>

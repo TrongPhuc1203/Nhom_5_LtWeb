@@ -1,0 +1,26 @@
+﻿@model IEnumerable<MVC_Project.Models.TheLoai>
+@{
+    ViewBag.Title = "Index";
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 style="margin-top:80px">Quản lý thể Loại</h1>
+<table border="1px" style="font-size:x-large;width:1000px;text-align:center">
+    <tr >
+        <th style="text-align:center">Mã thể loại</th>
+        <th style="text-align:center">Tên thể loại </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.MaTL</td>
+            <td>@item.TenTL</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaTL }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaTL })
+            </td>
+        </tr>
+    }
+</table>
+@Html.ActionLink("Create", "Create", "Theloai")

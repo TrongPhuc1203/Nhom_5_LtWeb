@@ -1,0 +1,81 @@
+﻿@model IEnumerable<MVC_Project.Models.GioHang>
+
+@{
+    ViewBag.Title = "Giỏ Hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="margin-top:80px">Giỏ Hàng</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.tenSach)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.giaBan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.soLuong)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.thanhTien)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.tenSach)
+            </td>
+            <td>
+                <img src="@item.hinh" width="180" />
+            </td>
+            @using (Html.BeginForm("capNhapGioHang", "GioHang", new { @id = item.maSach }))
+            {
+                <td>
+                    @String.Format("{0:0,0}", item.giaBan) VND
+                </td>
+
+                <td>
+                    <input type="number" min="1" max="@ViewBag.SoLuongTon" name="txtSoLg" value="@item.soLuong" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.thanhTien)
+                </td>
+                <td>
+                    <a href="@Url.Action("Detail", "Sach", new { @id = item.maSach })">Chi Tiết</a> |
+                    @Html.ActionLink("Xóa", "XoaGioHang", new { @id = item.maSach })
+                </td>
+                <td><input type="submit" value="Cập nhập" class="btn btn-success" /></td>
+            }
+            @*<td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>*@
+        </tr>
+    }
+    <tr style="font-weight:bold;text-align:left;color:red">
+        <td colspan="2">Số loại sách: @ViewBag.Tongsoluongsanpham</td>
+        <td colspan="2">Số lượng sách: @ViewBag.Tongsoluong</td>
+        <td colspan="4">Tổng tiền: @String.Format("{0:0,0}", @ViewBag.Tongtien) VND</td>
+    </tr>
+
+    @if (@ViewBag.Tongsoluongsanpham != 0)
+    {
+        <tr style="font-weight:bold;text-align:right;color:blue">
+            <td colspan="5">@Html.ActionLink("Xóa giỏ hàng", "xoaTatCaGioHang")</td>
+        </tr>   
+        <tr style="font-weight:bold;text-align:right;color:blue">
+            <td colspan="5">@Html.ActionLink("Đặt hàng", "dathang", "GioHang")</td>
+        </tr>
+    }
+
+
+</table>

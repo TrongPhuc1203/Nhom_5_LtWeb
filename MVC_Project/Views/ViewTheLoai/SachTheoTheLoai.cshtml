@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "SachTheoTheLoai";
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="margin-top:100px">Sách theo thể loại đã chọn</h2>
+@if (Model.Count == 0)
+{
+    <h1>@ViewBag.Sach</h1>
+}
+@*<h1>@ViewBag.Sach</h1>*@
+<div id=" divBody">
+    @{ int i = 0;}
+    @foreach (var item in Model)
+    {
+        
+        i++;
+        
+        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel panel-heading">
+                    @item.TenSach
+                </div>
+                <div class="panel-body">
+                    <p><strong>Tên tác giả: </strong>@item.TenTacGia</p>
+                    <p><strong>Tên the loai: </strong>@item.TheLoai.TenTL</p>
+                    <p><strong>Năm xuất bản: </strong>@item.NamXuatBan</p>
+                    <p><strong>Giá: </strong>@item.DonGia</p>
+                    <p><strong>Số lượng sách: </strong>@item.SoLuongSach</p>
+                    <div id="HinhAnh"><img src="@Url.Content(item.HinhAnh)" width="200" height="250"></div>
+
+                </div>
+                
+                <div class="panel-footer clearfix">
+                    <div class="pull-right">
+                        <div class="DatMua">
+                            <a class="btn btn-success" href="@Url.Action("ThemGioHang", "GioHang",
+new { @id = item.MaSach, @strURL = Request.Url.ToString()})">Đặt mua</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+        if (i % 3 == 0)
+        {
+            <div sytle="clear:both"></div>
+        }
+    }
+</div>
+<div sytle="clear:both"></div>

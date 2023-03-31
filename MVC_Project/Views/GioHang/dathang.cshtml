@@ -1,0 +1,63 @@
+﻿@model IEnumerable<MVC_Project.Models.GioHang>
+
+@{
+    ViewBag.Title = "dathang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="margin-top:80px">Đặt hàng</h2>
+<table class="table">
+    <tr>
+        <th>
+            <p>User name :</p>
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tenSach)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hinh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.giaBan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.soLuong)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.thanhTien)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>  
+            <td>
+                @User.Identity.Name
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tenSach)
+            </td>
+            <td>
+                <p><img src="@item.hinh" alt="hinh thumnail" style="width:100px"></p>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.giaBan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.soLuong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.thanhTien)
+            </td>
+            
+        </tr>
+    }
+    
+<tr style="font-weight:bold;text-align:right;color:blue">
+    <td colspan="4">Tổng tiền: @String.Format("{0:0,0}", @ViewBag.Tongtien) VND</td>
+    <td colspan="5">@Html.ActionLink("Xac Nhan", "XacNhanDonHang", "GioHang")</td>
+</tr>
+</table>
+
+

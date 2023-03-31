@@ -1,0 +1,53 @@
+﻿@model IEnumerable<MVC_Project.Models.DanhSachYeuThich>
+
+@{
+    ViewBag.Title = "Danh Sách Yêu Thích";
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="margin-top:80px">Danh Sách Yêu Thích</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.maSach)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tenSach)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.hinh)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.maSach)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tenSach)
+        </td>
+        <td>
+            <img src="@item.hinh" width="180" />
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+        </td>
+        <td>
+            @*<a href="@Url.Action("Detail", "Sach", new { @id = item.maSach })">Chi Tiết</a> |*@
+            @*@Html.ActionLink("Xóa", "XoaDanhSachYeuThich", new { @id = item.maSach })*@
+            <a class="btn btn-success" href="@Url.Action("XoaDanhSachYeuThich", "DanhSachYeuThich",new { @id = item.maSach, @strURL = Request.Url.ToString()})">Xóa khỏi yêu thích</a>
+
+            <a class="btn btn-success" href="@Url.Action("ThemGioHang", "GioHang",new { @id = item.maSach, @strURL = Request.Url.ToString()})">Thêm vào giỏ hàng</a>
+        </td>
+    </tr>
+}
+
+</table>

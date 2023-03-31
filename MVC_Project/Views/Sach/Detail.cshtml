@@ -1,0 +1,91 @@
+﻿@model MVC_Project.Models.Sach
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detail</h2>
+
+<div>
+    <h2>Chi tiết sách</h2>
+    <hr />
+    <dl class="dl-horizontal" style="font-size:x-large">
+        @*<dt>
+            Mã thể loại
+        </dt>*@
+
+        @*<dd>
+            @Html.DisplayFor(model => model.MaTL)
+        </dd>*@
+
+        <dt>
+            Tên thể loại
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenSach)
+        </dd>
+
+        <dt>
+            Tên tác giả
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenTacGia)
+        </dd>
+
+        <dt>
+            Nhà xuất bản
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NhaXuatBan)
+        </dd>
+
+        <dt>
+            Năm xuất bản
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NamXuatBan)
+        </dd>
+
+        <dt>
+            Giá
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DonGia) VND
+        </dd>
+        @*<dt>
+            Số lượng
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuongSach)
+        </dd>*@
+        @*<dt>
+            Hình ảnh
+        </dt>*@
+
+        @*<dd>*@
+        @*</dd>*@
+
+        <img width="200px" src="@Model.HinhAnh" alt="Hinh sach" style="margin-left:100px" />
+
+
+    </dl>
+
+</div>
+<p>
+    @if (User.IsInRole("Admin"))
+    {
+        @Html.ActionLink("Edit", "Edit", new { id = Model.MaSach })
+}
+    @*@Html.ActionLink("Back to List", "Index","Home")*@
+  
+        <a style="margin-left:170px" class="btn btn-success" href="@Url.Action("ThemGioHang", "GioHang",
+new { @id = Model.MaSach, @strURL = Request.Url.ToString()})">Đặt mua</a>
+    
+</p>

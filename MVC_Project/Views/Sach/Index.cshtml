@@ -1,0 +1,35 @@
+﻿@model IEnumerable<MVC_Project.Models.Sach>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 >Edit Sach</h2>
+@Html.ActionLink("Create", "Create", "Sach")
+<table border="1px" style="text-align:center;vertical-align:middle;font-size:large" width="100%">
+    <tr>
+        <th>Mã Sách</th>
+        <th>Mã thể loại</th>
+        <th style="text-align:center">Tên thể loại</th>
+        <th style="text-align:center">Tên Sách</th>
+        <th style="text-align:center">Hình</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.MaSach</td>
+            <td>@item.MaTL</td>
+            <td>@item.TheLoai.TenTL</td>
+            <td>@item.TenSach</td>
+            <td><p><img width="150px" src="@item.HinhAnh" alt="Hinh sach" /></p></td>
+            <td></td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaSach })|
+                @Html.ActionLink("Detail", "Detail", new { id = item.MaSach })|
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaSach })
+            </td>
+        </tr>
+    }
+</table>
+

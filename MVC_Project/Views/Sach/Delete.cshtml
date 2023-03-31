@@ -1,0 +1,21 @@
+﻿@model MVC_Project.Models.Sach
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="margin-top:80px">Delete</h2>
+<fieldset style="font-size:x-large;text-align:center">
+    <div class="display-label">Mã sách: @Html.Encode(Model.MaSach)</div>
+    <div class="display-lable">Mã thể loại: @Html.Encode(Model.MaTL)</div>
+    <div class="display-lable">Tên thể loại: @Html.Encode(Model.TheLoai.TenTL)</div>
+    <div class="display-label">Tên sách: @Model.TenSach</div>
+    <p><img width="200px" src="@Model.HinhAnh" alt="Hinh sach" /></p>
+</fieldset>
+@using (Html.BeginForm())
+{
+    <p style="font-size:x-large;text-align:center;margin-top:20px">
+        <input type="submit" value="Delete" />
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

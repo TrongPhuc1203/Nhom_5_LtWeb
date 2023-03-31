@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+    Layout = Request.IsAjaxRequest() ? null : "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 style="margin-top:80px">Create</h2>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset style="font-size:x-large;text-align:center">
+        <p>
+            Tên thể loại:
+            @Html.TextBox("TenTL")<font color="red">@ViewData["Error"]</font>
+        </p>
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+<div>
+    @*@Html.ActionLink("Back to List", "Index")*@
+</div>

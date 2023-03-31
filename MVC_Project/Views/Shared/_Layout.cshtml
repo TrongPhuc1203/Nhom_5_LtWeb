@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link rel="icon" type="image/x-icon" href="\Content\logoTrangChu.png">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    
+<link href="~/Content/Site.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" title="more options">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("HutechBook", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+
+                    @*<li>@Html.ActionLink("Danh Sách Sách", "Index", "ListSach")</li>*@
+                    <li>@Html.ActionLink("Danh Sách Sách", "Index", "ListSach")</li>
+                    <li>@Html.ActionLink("Thể Loại", "TheLoai", "ViewTheLoai")</li>
+                    @if (User.IsInRole("Khách Hàng"))
+                    {
+                        <li>@Html.ActionLink("Yêu Thích", "DanhSachYeuThich", "DanhSachYeuThich")</li>
+                        <li>@Html.Partial("~/Views/GioHang/GioHangPartial.cshtml")</li>
+                        <li>@Html.ActionLink("Lịch sử đặt hàng", "Index", "LichSuDatHang")</li>
+                    }
+                    @*<li>@Html.ActionLink("Thể Loại", "TheLoai", "ViewTheLoai")</li>
+        <li>@Html.ActionLink("Yêu Thích", "DanhSachYeuThich", "DanhSachYeuThich")</li>*@
+
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li>@Html.ActionLink("Quản Lý Thể Loại", "Index", "TheLoai")</li>
+                        <li>@Html.ActionLink("Quản Lý Sách", "Index", "Sach")</li>
+                        <li>@Html.ActionLink("Quản Lý Vai Trò", "Index", "Role")</li>
+                        <li>@Html.ActionLink("Thống kê hóa đơn", "Index", "LichSu")</li>
+                    }
+
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - MVC_Project - 20DTHD2</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    @RenderSection("upload", required: false)
+</body>
+</html>
